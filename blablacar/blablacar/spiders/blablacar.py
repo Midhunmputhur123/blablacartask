@@ -26,3 +26,16 @@ class BlablacarSpider(scrapy.Spider):
 
     	final_route = '//h1[@class="RideName RideName--title"]//span//text()'
     	dep_point = '//span[@data-position="departure"]/span/text()'
+    	drop_point = '//span[@data-position="arrival"]/span/text()'
+    	dep_date = '//strong[@class="RideDetails-infoValue"]//span/text()'
+    	options = '//span[@class="u-alignMiddle"]/text()'
+    	price = '//span[@class="Booking-price u-block"]/text()'
+    	seats = '//span[@class="Booking-seats u-block"]/b/text()'
+    	own_image = '//div[@class="ProfileCard"]//div[@class="ProfileCard-picture"]//img/@src'
+    	own_name = '//div[@class="ProfileCard"]//div[@class="ProfileCard-infosBlock"]//h4//text()'
+    	own_desc = '//div[@class="ProfileCard"]//div[@class="ProfileCard-infosBlock"]//div[@class="ProfileCard-info u-blue"]/text()'
+    	rate = '//span[@class="u-textBold u-darkGray"]/text()'
+    	own_age = '//div[@class="ProfileCard"]//div[@class="ProfileCard-infosBlock"]//div[@class="ProfileCard-info"]/text()'
+    	car = '//div[@class="Profile-car u-table"]//p[@class="Profile-carDetails u-cell"]/text()'
+
+
