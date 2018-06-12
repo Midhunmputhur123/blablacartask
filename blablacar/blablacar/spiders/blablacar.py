@@ -38,4 +38,19 @@ class BlablacarSpider(scrapy.Spider):
     	own_age = '//div[@class="ProfileCard"]//div[@class="ProfileCard-infosBlock"]//div[@class="ProfileCard-info"]/text()'
     	car = '//div[@class="Profile-car u-table"]//p[@class="Profile-carDetails u-cell"]/text()'
 
+    	#data extraction
+    	route = response.xpath(final_route).extract()
+    	dep_point = response.xpath(dep_point).extract()
+    	drop_point = response.xpath(drop_point).extract()
+    	dep_date = response.xpath(dep_date).extract()
+    	options = response.xpath(options).extract()
+    	price = response.xpath(price).extract()
+    	seats = response.xpath(seats).extract()
+    	image = response.xpath(own_image).extract()
+    	name = response.xpath(own_name).extract()
+    	age = response.xpath(own_age).extract()
+    	description = response.xpath(own_desc).extract()
+    	rating = response.xpath(rate).extract()
+    	car = response.xpath(car).extract()
+
 
