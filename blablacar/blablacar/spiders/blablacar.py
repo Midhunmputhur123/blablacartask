@@ -21,4 +21,8 @@ class BlablacarSpider(scrapy.Spider):
         for url in ride_url:
         	 yield scrapy.Request(self.base_url + url, callback=self.rider_details)
 
+    def rider_details(self , response):
+    	#xpath details
 
+    	final_route = '//h1[@class="RideName RideName--title"]//span//text()'
+    	dep_point = '//span[@data-position="departure"]/span/text()'
