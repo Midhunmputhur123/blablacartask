@@ -74,7 +74,7 @@ class BlablacarSpider(scrapy.Spider):
 
     	if car :
     		car_model1 = car[0]
-    		car_color = car[1]
+    		car_color = car[1].strip()
 
     	yield  blablacarItem(
     		source=source,
