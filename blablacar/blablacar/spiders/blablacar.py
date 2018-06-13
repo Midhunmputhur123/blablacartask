@@ -1,7 +1,7 @@
 import scrapy
 import string
 from dateparser import parse as parse_date
-from blablacar.items import BlablacarItem
+from blablacar.items import blablacarItem
 
 class BlablacarSpider(scrapy.Spider):
 	name = 'ride'
@@ -57,7 +57,8 @@ class BlablacarSpider(scrapy.Spider):
 		#cleaning of data
 		departure = ''.join(dep_point).strip()
 		droping =''.join(drop_point).strip()
-		date = parse_date(dep_date)
+		dep_date =''.join(dep_date).strip()
+		dep_date = parse_date(dep_date)
 		options =''.join(options).strip()
 		price =''.join(price).strip().replace('₹\xa0', '')
 		seats =''.join(seats).strip()
@@ -87,7 +88,7 @@ class BlablacarSpider(scrapy.Spider):
 			destination=destination,
 			departure_point=departure,
 			drop_off_point=droping,
-			departure_date=date,
+			departure_date=dep_date,
 			options=options,
 			seats_left=seats,
 			car_owner_image=image,
