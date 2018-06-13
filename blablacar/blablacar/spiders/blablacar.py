@@ -57,7 +57,7 @@ class BlablacarSpider(scrapy.Spider):
 		#cleaning of data
 		departure = ''.join(dep_point).strip()
 		droping =''.join(drop_point).strip()
-		date =''.join(dep_date).strip()
+		date =parse_date(dep_date)
 		options =''.join(options).strip()
 		price =''.join(price).strip().replace('₹\xa0', '')
 		seats =''.join(seats).strip()
