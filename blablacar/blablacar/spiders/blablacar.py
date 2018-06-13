@@ -1,6 +1,7 @@
 import scrapy
 import string
 from dateparser import parse as parse_date
+from blablacar.items import blablacarItem
 
 class BlablacarSpider(scrapy.Spider):
 	name = 'ride'
@@ -65,6 +66,33 @@ class BlablacarSpider(scrapy.Spider):
     	age =''.join(age).strip().replace(' years old', '')
     	description =''.join(description).strip()
     	rating =''.join(rating).strip()
-    	car = ''.join(car).strip()
+
+
+    	if route:
+    		source = route[0]
+    		destination = route[-1]
+
+    	if car :
+    		car_model1 = car[0]
+    		car_color = car[1]
+
+    	yield  blablacarItem(
+    		source=source,
+    		destination=destination,
+    		departure_point=departure,
+    		drop_off_point=droping,
+    		departure_date=date,
+    		options=options,
+    		seats_left=seats,
+    		car_owner_image=image,
+    		car_owner_name=name,
+    		car_owner_age=age,
+    		car_owner_verification=description,
+    		car_owner_rating = rating,
+    		car_model=car_model1,
+    		car_colour=car_color
+    		)
+
+
 
 
