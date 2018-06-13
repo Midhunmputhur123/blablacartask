@@ -72,13 +72,14 @@ class BlablacarSpider(scrapy.Spider):
 			source = route[0]
 			destination = route[-1]
 
-		car_model1 = []
-		car_color = []
+		car_model = ""
+		car_color = ""
 
 		if car :
-			car_model1 = car[0]
-			car_color = car[1].strip().split('Colour:  ')
-			car_color2 = car_color[-1]
+			car_model = car[0].strip()
+			car_color = car[1].strip()
+			car_color = car_color.split('Colour: ')
+			car_color = car_color[-1]
 
 
 		yield  blablacarItem(
@@ -94,8 +95,8 @@ class BlablacarSpider(scrapy.Spider):
 			car_owner_age=age,
 			car_owner_verification=description,
 			car_owner_rating = rating,
-			car_model=car_model1,
-			car_colour=car_color2
+			car_model=car_model,
+			car_colour=car_color
 			)
 
 
